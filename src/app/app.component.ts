@@ -7,11 +7,19 @@ import { UsersService } from "../services/users.service"
     providers: [UsersService]
 })
 export class AppComponent {
+    data = [{}];
     constructor( private users: UsersService ){
-        this.users.req().subscribe(res => {
-            if( res.length > 0) console.log( res );
-            else console.log( 'no result');
-        });
+        let values = {
+            id: 2
+        };
+        // this.users.getById( values, res =>{
+        //     this.data = res;
+        // }, err=>{ console.log( 'error', err )} );
+        this.users.getAll( res =>{
+            this.data = res;
+        }, err =>{
+            console.log( 'error', err );
+        })
     }
     title = 'app';
 }
