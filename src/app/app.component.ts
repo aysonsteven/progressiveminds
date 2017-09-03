@@ -3,23 +3,22 @@ import { UsersService } from "../services/users.service"
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
+    styleUrls: ['./app.component.scss'],
     providers: [UsersService]
 })
 export class AppComponent {
     data = [{}];
     constructor( private users: UsersService ){
         let values = {
-            id: 2
+            id: 'asd'
         };
-        // this.users.getById( values, res =>{
-        //     this.data = res;
-        // }, err=>{ console.log( 'error', err )} );
-        this.users.getAll( res =>{
+        this.users.getAllUsers( res =>{
             this.data = res;
         }, err =>{
             console.log( 'error', err );
-        })
+        });
+        this.users.getUserById( values, res =>{
+            console.log( res )
+        }, error => console.log('ERROR', error ) );
     }
-    title = 'app';
 }
