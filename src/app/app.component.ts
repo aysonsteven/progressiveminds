@@ -10,7 +10,7 @@ export class AppComponent {
     data = [{}];
     constructor( private users: UsersService ){
         let values = {
-            id: 'asd'
+            id: 2
         };
         this.users.getAllUsers( res =>{
             this.data = res;
