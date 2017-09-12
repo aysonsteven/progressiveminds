@@ -33,4 +33,10 @@ export class UsersService extends Base{
             errorCallback( err );
         })
     }
+
+    login( userdata, successCallback, errorCallback: ( error: string) => void ){
+        this.query( 'login', userdata, res=>{
+            successCallback( res );
+        }, error=> errorCallback( error ));
+    }
 }
