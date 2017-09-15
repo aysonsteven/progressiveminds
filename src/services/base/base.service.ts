@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core"
 import { Headers , RequestOptions } from "@angular/http"
 @Injectable()
 export class Base{
-    url:string = 'http://localhost/project/progressiveminds-backend/public/';
+    url:string = 'http://backend.progressiveminds.org/';
     constructor( private http){}
 
 
